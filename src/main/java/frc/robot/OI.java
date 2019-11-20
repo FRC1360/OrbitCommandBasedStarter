@@ -62,4 +62,20 @@ else{
   return input;
  }
 }
+public double getTriggerRight()
+{
+return deadzone(driverController.getTriggerAxis(Hand.kRight), .3);
+
+}
+public double getTriggerLeft()
+{
+  return deadzone(driverController.getTriggerAxis(Hand.kLeft), .3);
+
+}
+public double getJoyStickLeft()
+{
+  return deadzone(driverController.getX(Hand.kLeft), .2);
+}
+
+
 }
