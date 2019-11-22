@@ -9,10 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.claw.TopClawPositionCommand;
 import frc.robot.subsystems.*;
-import frc.robot.subsystems.TalonConfig.TalonConfigDrive;
-import frc.robot.subsystems.TalonConfig.TalonConfigElevator;
 import frc.robot.util.Constants;
 
 /**
@@ -27,8 +24,8 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-  public static drivetrain2 drivetrain = 
-  new drivetrain2(
+  public static Drivetrain drivetrain = 
+  new Drivetrain(
           RobotMap.DRIVETRAIN_CAN_ID_LEFT_FRONT_MASTER,
           RobotMap.DRIVETRAIN_CAN_ID_RIGHT_FRONT_MASTER,
           RobotMap.DRIVETRAIN_CAN_ID_LEFT_REAR_SLAVE,
@@ -68,8 +65,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void disabledInit() {
-         Robot.Drivetrain2.talonL.setNeutralMode(NeutralMode.Coast);
-		 Robot.Drivetrain2.talonR.setNeutralMode(NeutralMode.Coast);
+         Robot.drivetrain.talonL.setNeutralMode(NeutralMode.Coast);
+		 Robot.drivetrain.talonR.setNeutralMode(NeutralMode.Coast);
     }
 
     @Override
@@ -119,18 +116,7 @@ public class Robot extends TimedRobot {
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (m_autonomousCommand != null) {
-            m_autonomousCommand.cancel();
-        }
-        //elevator.setHoldPos(0);
-         //elevator.setToBottom();
-      
-    //    // drivetrain.driveStraight(3000);
-    //     led.setColour(Constants.LED_COLOUR_NONE);
-        elevator.configElevatorTel();
-         Robot.Drivetrain2.talonL.setNeutralMode(NeutralMode.Brake);
-         Robot.Drivetrain2.talonR.setNeutralMode(NeutralMode.Brake);
-         claw.setIgnoreSensor(false);
+    
     }
 
     /**
@@ -139,34 +125,11 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        oi.oiCycle();
        //elevator.moveToPosition(1000);
       //  System.out.println(elevator.elevatorMotorMaster.getClosedLoopError());
       //drivetrain.tankDrive(0, 0);
         Scheduler.getInstance().run();
-      
-        //SmartDashboard.putBoolean("hatch sensor check this one", claw.hasHatchTop());
-    //    SmartDashboard.putNumber("target elevator", elevator.elevatorMotorMaster.getClosedLoopTarget());
-    //     SmartDashboard.putBoolean("forward lim", Robot.elevator.elevatorMotorMaster.getSensorCollection().isFwdLimitSwitchClosed());
-    //     SmartDashboard.putBoolean("reverse lim", Robot.elevator.elevatorMotorMaster.getSensorCollection().isRevLimitSwitchClosed());
-          SmartDashboard.putNumber("encoder elevator", Robot.elevator.getElevatorEnc());
-         //SmartDashboard.putNumber("error elevator", Robot.elevator.elevatorMotorMaster.getClosedLoopError());
-    //     SmartDashboard.putNumber("joystcik val", Robot.elevator.elevatorMotorMaster.getSelectedSensorVelocity());
-      //  System.out.println( Robot.elevator.getElevatorEnc());
-        SmartDashboard.putNumber("target e velocity", Robot.elevator.elevatorMotorMaster.getActiveTrajectoryVelocity());
-        SmartDashboard.putNumber("elevator velocity", Robot.elevator.elevatorMotorMaster.getSelectedSensorVelocity());
-        //elevator.setToBottom(); 
-        //drivetrain.driveStraight(3000);
-        //SmartDashboard.putNumber("left Velocity", Robot.drivetrain.talonL.getSelectedSensorVelocity());
-         SmartDashboard.putNumber("distance error", drivetrain2.talonR.getClosedLoopTarget(Constants.PID_PRIMARY));
-         SmartDashboard.putNumber("current", drivetrain2.talonR.getOutputCurrent());
-         SmartDashboard.putNumber("target velocity", drivetrain2.talonR.getActiveTrajectoryVelocity());
-         SmartDashboard.putNumber("right velocity", drivetrain2.talonR.getSelectedSensorVelocity());
-         SmartDashboard.putNumber("drive POS", drivetrain2.talonR.getSelectedSensorPosition());
-         SmartDashboard.putNumber("diff velocity", drivetrain2.talonR.getSelectedSensorVelocity() - drivetrain2.talonL.getSelectedSensorVelocity());
-         SmartDashboard.putNumber("turn error", drivetrain2.talonR.getClosedLoopError(Constants.PID_TURN));
-         SmartDashboard.putNumber("drive error", drivetrain2.talonR.getClosedLoopError(Constants.PID_PRIMARY));
-        //System.out.println(oi.operatorController.getY(Hand.kLeft));
+
        // System.out.println(oi.operatorController.getRawAxis(1));
 
       

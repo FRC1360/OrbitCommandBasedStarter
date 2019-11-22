@@ -9,7 +9,7 @@ package frc.robot.Command;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.drivetrain2;
+import frc.robot.subsystems.Drivetrain;
 import frc.robot.OI;
 
 
@@ -17,7 +17,7 @@ public class DriveTrainCommand extends Command {
   public DriveTrainCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.drivetrain2);
+    requires(Robot.drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -33,10 +33,10 @@ public class DriveTrainCommand extends Command {
 
  if(Robot.oi.getTriggerLeft() == 0)
  {
-    Robot.drivetrain.drive(-Robot.oi.getTriggerLeft(), Robot.oi.getJoyStickLeft());
+    Robot.drivetrain.arcadeDrive(Robot.oi.getTriggerRight(), Robot.oi.getJoyStickLeft());
  }
  else{
-  Robot.drivetrain2.drive(Robot.oi.getTriggerRight(), Robot.oi.getJoyStickLeft());
+  Robot.drivetrain.arcadeDrive(-Robot.oi.getTriggerLeft(), Robot.oi.getJoyStickLeft());
  }
 
 

@@ -43,18 +43,7 @@ import frc.robot.util.Constants;
 //import frc.robot.util.Instrum;
 import edu.wpi.first.wpilibj.SPI;
 
-/**
- * Add your docs here.
- */
-public class drivetrain2 extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
 
 public class Drivetrain extends Subsystem {
 
@@ -65,7 +54,7 @@ public class Drivetrain extends Subsystem {
   public WPI_VictorSPX victorR;
   public WPI_VictorSPX victorL;
 
-  public void drivetrain2 (int masterL, int masterR, int slaveL, int slaveR) {
+  public Drivetrain (int masterL, int masterR, int slaveL, int slaveR) {
     this. talonL = new WPI_TalonSRX(masterL);
     this. talonR = new WPI_TalonSRX(masterR);
 
@@ -103,5 +92,5 @@ public class Drivetrain extends Subsystem {
     }
 
 }
-}
+
 
