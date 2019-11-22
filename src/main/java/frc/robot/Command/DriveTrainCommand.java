@@ -36,7 +36,7 @@ public class DriveTrainCommand extends Command {
     Robot.drivetrain.drive(-Robot.oi.getTriggerLeft(), Robot.oi.getJoyStickLeft());
  }
  else{
-  Robot.Drivetrain.drive(Robot.oi.getTriggerRight(), Robot.oi.getJoyStickLeft());
+  Robot.drivetrain2.drive(Robot.oi.getTriggerRight(), Robot.oi.getJoyStickLeft());
  }
 
 

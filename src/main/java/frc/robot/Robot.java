@@ -23,22 +23,18 @@ import frc.robot.util.Constants;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Claw claw = new Claw();
-  public static Intake intake = new Intake();
-  public static LED led = new LED();
-  
-  public static Elevator elevator = new Elevator();
+
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-  public static final Drivetrain drivetrain = 
-  new Drivetrain(
+  public static drivetrain2 drivetrain = 
+  new drivetrain2(
           RobotMap.DRIVETRAIN_CAN_ID_LEFT_FRONT_MASTER,
           RobotMap.DRIVETRAIN_CAN_ID_RIGHT_FRONT_MASTER,
           RobotMap.DRIVETRAIN_CAN_ID_LEFT_REAR_SLAVE,
           RobotMap.DRIVETRAIN_CAN_ID_RIGHT_REAR_SLAVE);
 
-  public static final Vision vision = new Vision();
+
 
   public static OI oi;
 
@@ -72,8 +68,8 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void disabledInit() {
-         Robot.drivetrain.talonL.setNeutralMode(NeutralMode.Coast);
-		 Robot.drivetrain.talonR.setNeutralMode(NeutralMode.Coast);
+         Robot.Drivetrain2.talonL.setNeutralMode(NeutralMode.Coast);
+		 Robot.Drivetrain2.talonR.setNeutralMode(NeutralMode.Coast);
     }
 
     @Override
@@ -132,8 +128,8 @@ public class Robot extends TimedRobot {
     //    // drivetrain.driveStraight(3000);
     //     led.setColour(Constants.LED_COLOUR_NONE);
         elevator.configElevatorTel();
-         Robot.drivetrain.talonL.setNeutralMode(NeutralMode.Brake);
-         Robot.drivetrain.talonR.setNeutralMode(NeutralMode.Brake);
+         Robot.Drivetrain2.talonL.setNeutralMode(NeutralMode.Brake);
+         Robot.Drivetrain2.talonR.setNeutralMode(NeutralMode.Brake);
          claw.setIgnoreSensor(false);
     }
 
@@ -162,14 +158,14 @@ public class Robot extends TimedRobot {
         //elevator.setToBottom(); 
         //drivetrain.driveStraight(3000);
         //SmartDashboard.putNumber("left Velocity", Robot.drivetrain.talonL.getSelectedSensorVelocity());
-         SmartDashboard.putNumber("distance error", drivetrain.talonR.getClosedLoopTarget(Constants.PID_PRIMARY));
-         SmartDashboard.putNumber("current", drivetrain.talonR.getOutputCurrent());
-         SmartDashboard.putNumber("target velocity", drivetrain.talonR.getActiveTrajectoryVelocity());
-         SmartDashboard.putNumber("right velocity", drivetrain.talonR.getSelectedSensorVelocity());
-         SmartDashboard.putNumber("drive POS", drivetrain.talonR.getSelectedSensorPosition());
-         SmartDashboard.putNumber("diff velocity", drivetrain.talonR.getSelectedSensorVelocity() - drivetrain.talonL.getSelectedSensorVelocity());
-         SmartDashboard.putNumber("turn error", drivetrain.talonR.getClosedLoopError(Constants.PID_TURN));
-         SmartDashboard.putNumber("drive error", drivetrain.talonR.getClosedLoopError(Constants.PID_PRIMARY));
+         SmartDashboard.putNumber("distance error", drivetrain2.talonR.getClosedLoopTarget(Constants.PID_PRIMARY));
+         SmartDashboard.putNumber("current", drivetrain2.talonR.getOutputCurrent());
+         SmartDashboard.putNumber("target velocity", drivetrain2.talonR.getActiveTrajectoryVelocity());
+         SmartDashboard.putNumber("right velocity", drivetrain2.talonR.getSelectedSensorVelocity());
+         SmartDashboard.putNumber("drive POS", drivetrain2.talonR.getSelectedSensorPosition());
+         SmartDashboard.putNumber("diff velocity", drivetrain2.talonR.getSelectedSensorVelocity() - drivetrain2.talonL.getSelectedSensorVelocity());
+         SmartDashboard.putNumber("turn error", drivetrain2.talonR.getClosedLoopError(Constants.PID_TURN));
+         SmartDashboard.putNumber("drive error", drivetrain2.talonR.getClosedLoopError(Constants.PID_PRIMARY));
         //System.out.println(oi.operatorController.getY(Hand.kLeft));
        // System.out.println(oi.operatorController.getRawAxis(1));
 

@@ -65,7 +65,7 @@ public class Drivetrain extends Subsystem {
   public WPI_VictorSPX victorR;
   public WPI_VictorSPX victorL;
 
-  public void Drivetain (int masterL, int masterR, int slaveL, int slaveR) {
+  public void drivetrain2 (int masterL, int masterR, int slaveL, int slaveR) {
     this. talonL = new WPI_TalonSRX(masterL);
     this. talonR = new WPI_TalonSRX(masterR);
 
