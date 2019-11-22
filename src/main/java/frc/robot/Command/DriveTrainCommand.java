@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.Command;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
@@ -33,7 +33,7 @@ public class DriveTrainCommand extends Command {
 
  if(Robot.oi.getTriggerLeft() == 0)
  {
-    Robot.Drivetrain.drive(-Robot.oi.getTriggerLeft(), Robot.oi.getJoyStickLeft());
+    Robot.drivetrain.drive(-Robot.oi.getTriggerLeft(), Robot.oi.getJoyStickLeft());
  }
  else{
   Robot.Drivetrain.drive(Robot.oi.getTriggerRight(), Robot.oi.getJoyStickLeft());
@@ -52,4 +52,9 @@ public class DriveTrainCommand extends Command {
   @Override
   protected void interrupted() {
   }
+  @Override
+  protected boolean isFinished() {
+    return false;
+  }
+
 }
