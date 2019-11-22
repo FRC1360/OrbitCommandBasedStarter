@@ -6,7 +6,7 @@ package frc.robot.util;
 public class Constants {
     public static final int LEFT_TALON_DRIVE_SLOT_INDEX = 0;
     public static final int RIGHT_TALON_DRIVE_SLOT_INDEX = 0;
-
+    
     public static final int LEFT_TALON_TURN_SLOT_INDEX = 1;
     public static final int RIGHT_TALON_TURN_SLOT_INDEX = 1;
 
