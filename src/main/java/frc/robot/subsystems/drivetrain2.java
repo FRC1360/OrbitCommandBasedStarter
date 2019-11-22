@@ -7,7 +7,6 @@
 
 package frc.robot.subsystems;
 
-
 import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
@@ -38,11 +37,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.Command.DriveTrainCommand;
 //import frc.robot.subsystems.drive.TaloionMagicProfile;
 import frc.robot.util.Constants;
 //import frc.robot.util.Instrum;
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Add your docs here.
@@ -75,7 +74,7 @@ public class Drivetrain extends Subsystem {
 
     talonL.configForwardLimitSwitchSource(LimitSwitchSource.Deactivated, LimitSwitchNormal.Disabled);
     talonL.configReverseLimitSwitchSource(LimitSwitchSource.Deactivated, LimitSwitchNormal.Disabled);
-    talonR.configForwardLimitSwitchSource(LimitSwtichSource.Deactivated, LimitSwitchNormal.Disabled);
+    talonR.configForwardLimitSwitchSource(LimitSwitchSource.Deactivated, LimitSwitchNormal.Disabled);
     talonR.configReverseLimitSwitchSource(LimitSwitchSource.Deactivated, LimitSwitchNormal.Disabled);
     addChild(talonL);
     addChild(talonR);
@@ -103,5 +102,6 @@ public class Drivetrain extends Subsystem {
 
     }
 
+}
 }
 

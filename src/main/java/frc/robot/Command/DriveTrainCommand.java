@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.Command;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
@@ -17,7 +17,7 @@ public class DriveTrainCommand extends Command {
   public DriveTrainCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.Drivetrain);
+    requires(Robot.drivetrain2);
   }
 
   // Called just before this Command runs the first time
@@ -51,5 +51,11 @@ public class DriveTrainCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+  }
+
+  @Override
+  protected boolean isFinished() {
+    // TODO Auto-generated method stub
+    return false;
   }
 }
