@@ -17,7 +17,7 @@ public class DriveTrainCommand extends Command {
   public DriveTrainCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.drive);
+    requires(Robot.Drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -33,10 +33,10 @@ public class DriveTrainCommand extends Command {
 
  if(Robot.oi.getTriggerLeft() == 0)
  {
-    Robot.drive.drive(-Robot.oi.getTriggerLeft(), Robot.oi.getJoyStickLeft());
+    Robot.Drivetrain.drive(-Robot.oi.getTriggerLeft(), Robot.oi.getJoyStickLeft());
  }
  else{
-  Robot.drive.drive(Robot.oi.getTriggerRight(), Robot.oi.getJoyStickLeft());
+  Robot.Drivetrain.drive(Robot.oi.getTriggerRight(), Robot.oi.getJoyStickLeft());
  }
 
 
