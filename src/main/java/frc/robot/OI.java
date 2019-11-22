@@ -9,26 +9,8 @@ import edu.wpi.first.wpilibj.buttons.POVButton;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.*;
-import frc.robot.commands.elevator.*;
-import frc.robot.commands.claw.*;
-import frc.robot.commands.intake.*;
-import frc.robot.commands.claw.BottomClawPositionCommand;
-import frc.robot.commands.claw.TopClawPositionCommand;
-import frc.robot.commands.elevator.ElevatorGoToTarget;
-import frc.robot.commands.groups.ElevatorDefaultGroup;
-import frc.robot.commands.groups.ElevatorGoToTargetGroup;
-import frc.robot.commands.groups.IntakeCargo;
-import frc.robot.commands.groups.IntakeGroup;
-import frc.robot.commands.groups.IntakeHatch;
-import frc.robot.commands.groups.KillIntake;
-import frc.robot.commands.groups.OutakeCargo;
-import frc.robot.commands.groups.OuttakeGroup;
-import frc.robot.commands.groups.VisionDrivePID;
-import frc.robot.commands.intake.IntakePistonCommand;
-import frc.robot.subsystems.Claw;
+
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.subsystems.Elevator;
 import frc.robot.util.Constants;
 
 
