@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands.claw;
+package frc.robot.Command.claw;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 //import edu.wpi.first.wpilibj.command.Command;
