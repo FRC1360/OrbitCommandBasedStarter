@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 import frc.robot.util.Constants;
+import frc.robot.subsystems.Claw;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,6 +21,8 @@ import frc.robot.util.Constants;
  * project.
  */
 public class Robot extends TimedRobot {
+
+    public static Claw claw = new Claw();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -55,7 +58,10 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
-
+     
+     SmartDashboard.putBoolean("Hatch Toggle",claw.hasHatchTop());
+     SmartDashboard.putBoolean("cargo Sensor",claw.hasBall());
+ 
   }
 
     /**
