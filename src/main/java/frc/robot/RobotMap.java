@@ -50,5 +50,5 @@ public class RobotMap {
   public static final int CLIMBER_ARM_DRIVE = 2;
   public static final int CLIMBER_STINGER_ENC1 = 4;
   public static final int CLIMBER_STINGER_ENC2 = 5;
-  public static final int CLIMBER_RELEASE = 4;
+
 }
