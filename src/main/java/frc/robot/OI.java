@@ -51,31 +51,36 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
   public XboxController driverController = new XboxController(0);
+  
+  private Button buttonA = new JoystickButton(driverController, 1);
+
+  
   public double deadzone(double input, double deadzone)
   {
   if(Math.abs(input) < deadzone)
   {
     return 0;
   }
-else{
-  //if input is greater than deadzone
-  return input;
- }
-}
-public double getTriggerRight()
-{
-return deadzone(driverController.getTriggerAxis(Hand.kRight), .3);
+  else{
+    //if input is greater than deadzone
+    return input;
+  }
+  }
+  public double getTriggerRight()
+  {
+  return deadzone(driverController.getTriggerAxis(Hand.kRight), .3);
 
-}
-public double getTriggerLeft()
-{
-  return deadzone(driverController.getTriggerAxis(Hand.kLeft), .3);
+  }
+  public double getTriggerLeft()
+  {
+    return deadzone(driverController.getTriggerAxis(Hand.kLeft), .3);
 
-}
-public double getJoyStickLeft()
-{
-  return deadzone(driverController.getX(Hand.kLeft), .2);
-}
+  }
+  public double getJoyStickLeft()
+  {
+    return deadzone(driverController.getX(Hand.kLeft), .2);
+  }
 
+  
 
 }
