@@ -15,8 +15,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
-import frc.robot.commands.claw.killClawCommand;
-import frc.robot.commands.groups.killClaw; 
+import frc.robot.Command.claw.killClawCommand;
 
 /**
  * Add your docs here.
