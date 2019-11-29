@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 
 import edu.wpi.first.wpilibj.buttons.POVButton;
@@ -52,7 +53,8 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
   public XboxController driverController = new XboxController(0);
   
-  private Button buttonA = new JoystickButton(driverController, 1);
+  private Joystick leftJoystick = new Joystick(1); //Change the port to match controller
+  private Joystick rightJoystick = new Joystick(2); //Change the port to match controller
 
   
   public double deadzone(double input, double deadzone)
