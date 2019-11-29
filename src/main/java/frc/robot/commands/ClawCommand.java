@@ -5,12 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Claw extends Command {
-  public Claw() {
+public class ClawCommand extends Command {
+  public ClawCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
