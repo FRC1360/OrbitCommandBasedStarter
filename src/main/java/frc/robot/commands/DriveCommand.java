@@ -26,7 +26,7 @@ public class DriveCommand extends Command {
   @Override
   protected void execute() {
     double throttle = m_oi.getJoyStickRight();
-    double turn = m_oi.getJoyStickRight();
+    double turn = m_oi.getJoyStickLeft();
 
     drive.arcadeDrive(throttle, turn);
   }

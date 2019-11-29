@@ -53,10 +53,6 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
   public XboxController driverController = new XboxController(0);
   
-  private Joystick leftJoystick = new Joystick(1); //Change the port to match controller
-  private Joystick rightJoystick = new Joystick(2); //Change the port to match controller
-
-  
   public double deadzone(double input, double deadzone)
   {
   if(Math.abs(input) < deadzone)
