@@ -82,7 +82,10 @@ public class OI {
   {
     return deadzone(driverController.getX(Hand.kLeft), .2);
   }
-
+  public double getJoyStickRight()
+  {
+    return deadzone(driverController.getY(Hand.kRight), .2);
+  }
   
 
 }
