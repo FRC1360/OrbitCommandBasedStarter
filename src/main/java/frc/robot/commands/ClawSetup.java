@@ -9,8 +9,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class BottomClawPosition extends Command {
-  public BottomClawPosition() {
+public class ClawSetup extends Command {
+  public ClawSetup() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }

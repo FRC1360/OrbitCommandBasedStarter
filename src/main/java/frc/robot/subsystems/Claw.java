@@ -29,13 +29,37 @@ public class Claw extends Subsystem {
   private Solenoid wrist = new Solenoid(RobotMap.CLAW_SOLENOID_CHANNEL_WRIST_PISTON);
 
   private DigitalInput cargoSensor = new DigitalInput(RobotMap.CLAW_DIO_CHANNEL_CARGO_DETECT);
+  private final int initialSensorIgnoreTime = 50;
+  private int sensorIgnoreTime = initialSensorIgnoreTime;
 
-  private boolean haveBall = false;
+  public Claw(){
+    rollerBottom.setInverted(true);
+  }
 
   // What other states do we need?
   public enum Position{
     OPEN_CARGO,
     DEFAULT;
+  }
+
+  public enum IntakeState{
+    NONE,
+    BALL_IN_ROLLERS_ON,
+    BALL_IN_ROLLERS_OFF;
+  }
+
+  public IntakeState getIntakeState(){
+    if(cargoSensor.get()){
+      sensorIgnoreTime -= 1;
+      if(sensorIgnoreTime <= 0){
+        return IntakeState.BALL_IN_ROLLERS_OFF;
+      }
+      else{
+        return IntakeState.BALL_IN_ROLLERS_ON;
+      }
+    }
+    sensorIgnoreTime = initialSensorIgnoreTime;
+    return IntakeState.NONE;
   }
 
   public void setRollers(double wheelSpeed){
@@ -53,6 +77,10 @@ public class Claw extends Subsystem {
       pistonBottom.set(false);
       pistonTop.set(false);
     }
+  }
+
+  public void setWrist(boolean wristState){
+    wrist.set(wristState);
   }
 
   @Override
